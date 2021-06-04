@@ -5,21 +5,22 @@ from tkinter import messagebox, simpledialog, Tk
 import math
 
 i=0
+points = 0
 if __name__ == '__main__':
     window = Tk()
     window.withdraw()
     str_pi = "3.1415926535897932384"
-    print(str_pi[0], str_pi[1], str_pi[2])
+    true = True
 
-    while True:
-        i+=1
+    while true:
+        next_digit = ''
         next_digit = simpledialog.askstring(None, prompt="What is the next digit of pi?")
-        if next_digit != str_pi[3+i]:
-            next_digit = simpledialog.askstring(None, prompt="What is the next digit of pi?")
-        else:
-            break
-    for l in range(i+3):
-        messagebox.showinfo(None, str_pi[l])
+        if next_digit == str_pi[i]:
+            points+=1
+        elif next_digit != str_pi[i]:
+            true = False
+        i += 1
+    messagebox.showinfo(None, 'Good job, you got '+str(points) +' digits of pi')
     # TODO) Place the first 20 digits of pi into a variable as a string
     #  3.1415926535897932384
 
