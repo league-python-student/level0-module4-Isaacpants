@@ -34,20 +34,11 @@ if __name__ == '__main__':
     window = Tk()
     window.withdraw()
     money_in_dollars = 3.00
-    vm = vending_machine(money_in_dollars)
-
-
+    vending_machine(money_in_dollars)
     while money_in_dollars > 0:
-        vending_machine(money_in_dollars)
-        if vm.item_num.equals('water'):
-            money_in_dollars -= .50
-        elif vm.item_num.equals('soda'):
-            money_in_dollars -= 1.00
-        elif vm.item_num.equals('pretzels'):
-            money_in_dollars -= 1.00
-        elif vm.item_num.equals('candy bar'):
-            money_in_dollars -= 1.50
-        elif vm.item_num.equals('exit'):
+        vm = vending_machine(money_in_dollars)
+        money_in_dollars = money_in_dollars - vm
+        if vm == 0:
             messagebox.showinfo(None, 'You have ' + str(money_in_dollars) + ' dollars')
             break
 
